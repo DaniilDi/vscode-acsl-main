@@ -1,0 +1,184 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "ACSL",
+  "scopeName": "acsl.injection",
+  "injectionSelector": "L:source.c, L:source.cpp",
+  "patterns": [
+    {
+      "begin": "/\\*@",
+      "end": "\\*/",
+      "name": "block.acsl",
+      "patterns": [
+        {
+          "match": "(\\\\from|\\b(assert|assigns|assumes|allocates|axiom|axiomatic|behavior|behaviors|breaks|complete|continues|decreases|disjoint|else|ensures|exits|for|frees|if|inductive|invariant|global|label|lemma|logic|loop|pragma|predicate|reads|real|requires|returns|signed|sizeof|slice|impact|struct|terminates|type|variant))\\b",
+          "name": "keyword.acsl"
+        },
+        {
+          "match": "(\\b(integer|int)|\\b(char|double|float|enum|long|short|union|unsigned|void))",
+          "name": "storage.type.built-in.primitive.c"
+        },
+        {
+          "begin": "//",
+          "end": "\\n",
+          "name": "comment.line.double-slash.acsl"
+        },
+        {
+          "match": "\\\\\\b(true|false|result|nothing)\\b",
+          "name": "constant.boolean.acsl"
+        },
+        {
+          "match": "\\b((0(x|X)[0-9a-fA-F]([0-9a-fA-F\"]*[0-9a-fA-F])?)|(0(b|B)[01]([01\"]*[01])?)|(([0-9]([0-9\"]*[0-9])?\\.?[0-9]*([0-9\"]*[0-9])?)|(\\.[0-9]([0-9\"]*[0-9])?))((e|E)(\\+|-)?[0-9]([0-9\"]*[0-9])?)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b",
+          "name": "constant.numeric.acsl"
+        },
+        {
+          "match": "(?<=\\s)(==>|<-->|<--|-->)(?=\\s)",
+          "name": "keyword.control.acsl"
+        },
+        {
+          "match": "(\\+|-|\\*|/|%|<<|>>|&&|\\|\\||&|\\^|\\^\\^|\\.\\.)",
+          "name": "keyword.operator.binary.acsl"
+        },
+        {
+          "match": "(?<=\\s)(<|>|<=|>=|==|!=)(?=\\s)",
+          "name": "keyword.operator.comparison.acsl"
+        },
+        {
+          "match": "(\\+|-|!|~|\\*|&)",
+          "name": "keyword.operator.unary.acsl"
+        },
+        {
+          "match": "\\\\\\b(valid|forall|exists|old)\\b",
+          "name": "support.function.acsl"
+        },
+        {
+          "match": ";",
+          "name": "punctuation.terminator.statement.acsl"
+        },
+        {
+          "match": "\\b\\w+(?=\\((\\\\?\\w+\\s*,?\\s*)*\\))",
+          "name": "entity.name.function.acsl"
+        },
+        {
+          "match": "\\b\\w+(?=\\{(\\w+\\s*,?\\s*)*\\}(\\((\\w+\\s*,?\\s*)*\\))?)",
+          "name": "entity.name.function.acsl"
+        },
+        {
+          "begin": "\"",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.string.begin.acsl" }
+          },
+          "end": "\"",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.acsl"
+            }
+          },
+          "name": "string.quoted.double.include.ascl"
+        },
+        {
+          "begin": "\"",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.acsl"
+            }
+          },
+          "end": "\"",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.acsl"
+            }
+          },
+          "name": "string.quoted.single.acsl"
+        }
+      ]
+    },
+    {
+      "begin": "//@",
+      "end": "\n",
+      "name": "line.acsl",
+      "patterns": [
+        {
+          "match": "(\\\\from|\\b(assert|assigns|assumes|allocates|axiom|axiomatic|behavior|behaviors|breaks|complete|continues|decreases|disjoint|else|ensures|exits|for|frees|if|inductive|invariant|global|label|lemma|logic|loop|pragma|predicate|reads|real|requires|returns|signed|sizeof|slice|impact|struct|terminates|type|variant))\\b",
+          "name": "keyword.acsl"
+        },
+        {
+          "match": "(\\b(integer|int)|\\b(char|double|float|enum|long|short|union|unsigned|void))",
+          "name": "storage.type.built-in.primitive.c"
+        },
+        {
+          "begin": "//",
+          "end": "\\n",
+          "name": "comment.line.double-slash.acsl"
+        },
+        {
+          "match": "\\\\\\b(true|false|result|nothing)\\b",
+          "name": "constant.boolean.acsl"
+        },
+        {
+          "match": "\\b((0(x|X)[0-9a-fA-F]([0-9a-fA-F\"]*[0-9a-fA-F])?)|(0(b|B)[01]([01\"]*[01])?)|(([0-9]([0-9\"]*[0-9])?\\.?[0-9]*([0-9\"]*[0-9])?)|(\\.[0-9]([0-9\"]*[0-9])?))((e|E)(\\+|-)?[0-9]([0-9\"]*[0-9])?)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b",
+          "name": "constant.numeric.acsl"
+        },
+        {
+          "match": "(?<=\\s)(==>|<-->|<--|-->)(?=\\s)",
+          "name": "keyword.control.acsl"
+        },
+        {
+          "match": "(\\+|-|\\*|/|%|<<|>>|&&|\\|\\||&|\\^|\\^\\^|\\.\\.)",
+          "name": "keyword.operator.binary.acsl"
+        },
+        {
+          "match": "(?<=\\s)(<|>|<=|>=|==|!=)(?=\\s)",
+          "name": "keyword.operator.comparison.acsl"
+        },
+        {
+          "match": "(\\+|-|!|~|\\*|&)",
+          "name": "keyword.operator.unary.acsl"
+        },
+        {
+          "match": "\\\\\\b(valid|forall|exists|old)\\b",
+          "name": "support.function.acsl"
+        },
+        {
+          "match": ";",
+          "name": "punctuation.terminator.statement.acsl"
+        },
+        {
+          "match": "\\b\\w+(?=\\((\\\\?\\w+\\s*,?\\s*)*\\))",
+          "name": "entity.name.function.acsl"
+        },
+        {
+          "match": "\\b\\w+(?=\\{(\\w+\\s*,?\\s*)*\\}(\\((\\w+\\s*,?\\s*)*\\))?)",
+          "name": "entity.name.function.acsl"
+        },
+        {
+          "begin": "\"",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.string.begin.acsl" }
+          },
+          "end": "\"",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.acsl"
+            }
+          },
+          "name": "string.quoted.double.include.ascl"
+        },
+        {
+          "begin": "\"",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.acsl"
+            }
+          },
+          "end": "\"",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.acsl"
+            }
+          },
+          "name": "string.quoted.single.acsl"
+        }
+      ]
+    }
+  ]
+}
